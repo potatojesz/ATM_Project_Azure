@@ -39,7 +39,7 @@ Also you don't need much space, so basic configuration with 1 core and 5 GB shou
 
 ##  Installation: Deploy app on Azure
 
-**To deploy application on Azure firstly we must make sure it is working locally***
+**To deploy application on Azure firstly we must make sure it is working locally**
 
 #### Installing application on local machine
 
@@ -64,3 +64,44 @@ git clone https://github.com/potatojesz/ATM_Project_Azure.git
 #### Deploying on Azure
 
 ## How to use swagger
+
+Default data in database are 2 accounts (_locally you can change them in ```data.sql``` file in resources_):
+```json
+{
+    "cardNumber": "0000000000000000",
+    "balance": "500000",
+    "pin": "0000"
+}
+```
+```json
+{
+    "cardNumber": "1111111111111111",
+    "balance": "99999",
+    "pin": "1234"
+}
+```
+
+
+1. First you must authenticate. To do this please pick auth controller and click *Try It Out* in *atm/auth* method.
+
+![Try It Out](https://github.com/potatojesz/ATM_Project_Azure/blob/master/screenshots/swagger_tryit.JPG)
+
+2. Please fill data with account you want to use, and execute method.
+
+![Fill and execute](https://github.com/potatojesz/ATM_Project_Azure/blob/master/screenshots/swagger_execute.JPG)
+
+3. You must now copy your JsonWebToken, It is used to authenticate to our REST API.
+
+![Copy](https://github.com/potatojesz/ATM_Project_Azure/blob/master/screenshots/swagger_copy_token.JPG)
+
+4. Now is time to authorize. To do this please click on *Authorize* button.
+
+![Authorize](https://github.com/potatojesz/ATM_Project_Azure/blob/master/screenshots/swagger_authorize.JPG)
+
+5. Now you must paste token you have copied earlier. Preceded with *Bearer* keyword, like this.
+
+![Paste token](https://github.com/potatojesz/ATM_Project_Azure/blob/master/screenshots/swagger_paste_token.JPG)
+
+6. Now you are ready to use other rest methods. Just like you used authentication method before.
+
+![Other methods](https://github.com/potatojesz/ATM_Project_Azure/blob/master/screenshots/swagger_other_methods.JPG)
