@@ -31,7 +31,19 @@ Also you don't need much space, so basic configuration with 1 core and 5 GB shou
 
 4. Next step is to make ***"atm_db"*** Database inside our brand new mysql server. To do this you can either use terminal or follow this        tutorial and setup your connection from GUI app like MySql Workbench, or DBeaver. https://docs.microsoft.com/pl-pl/azure/mysql/connect-workbench
 
-5. If you face connection issues like SSL issues, or IP you can try disabling security options like this:
+or use terminal to do this (you will need *mysql-command-line-tool* https://dev.mysql.com/doc/refman/5.7/en/mysql.html):
+    
+```shell
+mysql -h youserver.mysql.database.azure.com -u user@yourserver -p
+```
+
+then create database:
+    
+```shell
+CREATE DATABASE atm_db;
+```
+
+5. If you face connection issues like SSL issues, or IP you can try disabling security options like this (Don't forget to configure firewall options, you can either add only your IP to rules (by clickin on *Add My IP* button or setup it yourself and allow all))
 
 ![Security](https://github.com/potatojesz/ATM_Project_Azure/blob/master/screenshots/db_security.JPG)
 
