@@ -61,7 +61,34 @@ git clone https://github.com/potatojesz/ATM_Project_Azure.git
 
 4. You can check http://localhost:8080/swagger-ui.html#/ .  It's interactive documentation of REST API you just deployed on your local machine.
 
+
+
 #### Deploying on Azure
+
+1. Login to your Azure account using AzureCLI. Follow the instructions to complete the sign-in process.
+```shell
+az login
+```
+
+2. By default pom.xml is filled with my own properties. You can change them if you want different names/options.
+
+![POM.XML](https://github.com/potatojesz/ATM_Project_Azure/blob/master/screenshots/app_pom.JPG)
+
+3. After any changes (even if no changes don't worry to run it anyway) you should rebuild you application.
+```shell
+./mvnw clean package
+```
+
+4. Now is time to deploy our application. Run this
+```shell
+./mvnw azure-webapp:deploy
+```
+
+5. You can check in Azure portal if your application is listed there
+
+![Azure portal](https://github.com/potatojesz/ATM_Project_Azure/blob/master/screenshots/app_azure_portal.JPG)
+
+
 
 ## How to use swagger
 
