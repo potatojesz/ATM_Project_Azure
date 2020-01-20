@@ -1,131 +1,24 @@
-## ATM_Project
+## ATM_Project for Azure
 
-Backend REST ATM application simulating simple Bank using Java Spring Boot with JWT authentication and H2 in memory database
+Backend REST ATM application simulating simple Bank using Java Spring Boot with JWT authentication and mysql database
 
-## Prerequisites
+##  Prerequisites
 
-**JDK8**
+First thing to do is to setup mysql server in you azure portal.
 
-**Maven** (not needed, u can use wrapper ```./mvnw``` instead of ```mvn```)
+####    MySql for Azure
 
-## Installation
+1. Find Azure Database for MySql in you searcher field and add new one
 
+2. Fill all necessary fields like names, passwords, location etc. You can leave datasource as blank.
+Also you don't need much space, so basic configuration with 1 core and 5 GB should be enough.
 
----
+3. After resource is deployed you can check you connection info. To do that go to your resource page and pick database service you just   made.
 
-1. clone this source
+4. Next step is to make *"atm_db"* Database inside our brand new mysql server. To do this you can either use terminal or follow this        tutorial and setup your connection from GUI app like MySql Workbench, or DBeaver. https://docs.microsoft.com/pl-pl/azure/mysql/connect-workbench
 
-2. build
-```shell
-mvn clean package
-```
+5. If you face connecetion issues like you can try disabling security options like this:
 
-3. run
-```shell
-mvn spring-boot:run
-```
+*We don't need to create specific tables. Spring boot application will handle this while deployed*
 
----
-## Informations
-
-Application by default is working at port ```8080```, u can change it by adding ```server.port``` value in ```application.properties```
-
-Working Server example is available at [https://tklimczak-atm.herokuapp.com/](https://tklimczak-atm.herokuapp.com/)
-
-Default data in database are 2 accounts (_locally you can change them in ```data.sql``` file in resources_):
-```json
-{
-    "cardNumber": "0000000000000000",
-    "balance": "500000",
-    "pin": "0000"
-}
-```
-```json
-{
-    "cardNumber": "1111111111111111",
-    "balance": "99999",
-    "pin": "1234"
-}
-```
-
-## REST Methods
-
-### 1. Authorization
-
-#### POST /atm/auth
-
-##### _Example_
-```POST method``` on [https://tklimczak-atm.herokuapp.com/atm/auth](https://tklimczak-atm.herokuapp.com/atm/auth)
-
-**body**
-```json
-{
-    "cardNumber": "0000000000000000",
-    "pin": "0000"
-}
-```
-
-**response**
-
-```json
-{
-    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwMDAwMDAwMDAwMDAwMDAwIiwiaWF0IjoxN...",
-    "tokenType": "Bearer",
-    "number": "0000000000000000"
-}
-```
----
-
-### 2. Balance
-
-#### GET /atm/balance
-##### _Request Headers_
-  ```Authorization: Bearer _token_u_get_with_authorization_request```
-
-##### _Example_
-```GET method``` on [https://tklimczak-atm.herokuapp.com/atm/balance](https://tklimczak-atm.herokuapp.com/atm/balance)
-
-**response**
-
-```json
-500000
-```
----
-
-### 3. Withdraw money
-
-#### GET /atm/withdraw/500
-##### _Request Headers_
-  ```Authorization: Bearer _token_u_get_with_authorization_request```
-
-##### _Example_
-```GET method``` on [https://tklimczak-atm.herokuapp.com/atm/withdraw/500](https://tklimczak-atm.herokuapp.com/atm/withdraw/500)
-
-**response**
-
-_just check status if its ```200``` everything went OK, if u exceeded the balance u will get this error_
-```json
-{
-    "timestamp": "2019-05-02T00:07:37.778+0000",
-    "status": 400,
-    "error": "Bad Request",
-    "message": "Not enough balance on your account!",
-    "path": "/atm/withdraw/5102312313131"
-}
-```
----
-
-### 4. Deposit money
-
-#### GET /atm/add/500
-##### _Request Headers_
-  ```Authorization: Bearer _token_u_get_with_authorization_request```
-
-##### _Example_
-```GET method``` on [https://tklimczak-atm.herokuapp.com/atm/add/500](https://tklimczak-atm.herokuapp.com/atm/add/500)
-
-**response**
-
-_just check status if its ```200``` everything went OK_
-
----
+##  Installation: Deploy app on Azure
