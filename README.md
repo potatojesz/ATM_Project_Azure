@@ -10,7 +10,7 @@ Backend REST ATM application simulating simple Bank using Java Spring Boot with 
 
 ##  Installation: Database
 
-**First thing to do is to setup mysql server in you azure portal.**
+**First thing to do is to setup mysql server in yours azure portal.**
 
 ####    MySql for Azure
 
