@@ -88,7 +88,9 @@ az login
 
 ![Azure portal](https://github.com/potatojesz/ATM_Project_Azure/blob/master/screenshots/app_azure_portal.JPG)
 
+6. You can now check if your site is working at (if you changed the app service name in *pom.xml*, then use right link):
 
+https://tklimczakatm.azurewebsites.net/swagger-ui.html#
 
 ## How to use swagger
 
