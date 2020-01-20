@@ -2,6 +2,7 @@ package tklimczak.atm.controller;
 
 import java.math.BigDecimal;
 
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import tklimczak.atm.model.exception.NotEnoughBalanceException;
 import tklimczak.atm.service.ATMService;
 
+@Api(value="ATM operations")
 @RestController
 @RequestMapping("/atm")
 public class ATMController {

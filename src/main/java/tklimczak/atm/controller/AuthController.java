@@ -2,6 +2,7 @@ package tklimczak.atm.controller;
 
 import javax.validation.Valid;
 
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,6 +21,7 @@ import tklimczak.atm.model.payload.LoginRequest;
 import tklimczak.atm.repository.AccountRepository;
 import tklimczak.atm.repository.RoleRepository;
 
+@Api(value="Authorization")
 @RestController
 @RequestMapping("/atm/auth")
 public class AuthController {
